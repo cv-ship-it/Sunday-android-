@@ -1,0 +1,29 @@
+services:
+  agni:
+    build: .
+    restart: always
+    env_file: .env
+    environment:
+      AGNI_DB: /data/agni.db
+      AGNI_OUT: /data/outputs
+    volumes:
+      - agni-data:/data
+    # Only reachable from the VPS itself; Caddy below puts HTTPS in front of it.
+    ports:
+      - "127.0.0.1:8000:8000"
+
+  caddy:
+    image: caddy:2
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+    depends_on:
+      - agni
+
+volumes:
+  agni-data:
+  caddy-data:

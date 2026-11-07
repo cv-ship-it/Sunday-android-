@@ -1,0 +1,5 @@
+# Replace with your own domain (a free DuckDNS/Cloudflare subdomain pointing to the VPS IP works).
+# Caddy gets and renews the HTTPS certificate automatically.
+agni.example.com {
+    reverse_proxy agni:8000
+}

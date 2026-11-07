@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sunday</string>
+    <string name="accessibility_description">Lets Sunday read the screen and tap, type and scroll for you when you ask her to. You stay in control: risky actions ask for your confirmation, and banking, UPI and password apps are blocked.</string>
+</resources>
